@@ -1,0 +1,196 @@
+/* InnerG Terminal Theme for OpenClaw */
+/* Matrix-style dark theme with green accents */
+
+:root {
+  --matrix-green: #00FF41;
+  --matrix-dark: #003B00;
+  --matrix-bright: #7FFF00;
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #0A0A0A;
+  --bg-tertiary: #111111;
+  --text-primary: #00FF41;
+  --text-secondary: #00CC33;
+  --text-muted: #008822;
+  --border-color: rgba(0, 255, 65, 0.2);
+}
+
+/* Global overrides */
+* {
+  border-color: var(--border-color) !important;
+}
+
+body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: 'JetBrains Mono', 'SF Mono', monospace !important;
+}
+
+/* Scanline effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* Glow effect on text */
+::selection {
+  background: rgba(0, 255, 65, 0.3) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Override all backgrounds */
+div, section, article, aside, nav, main, header, footer {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.5) !important;
+}
+
+p, span, li {
+  color: var(--text-primary) !important;
+}
+
+/* Links */
+a {
+  color: var(--matrix-bright) !important;
+  text-shadow: 0 0 5px rgba(127, 255, 0, 0.5) !important;
+}
+
+a:hover {
+  color: var(--text-primary) !important;
+}
+
+/* Buttons */
+button, .btn, [role="button"] {
+  background: var(--matrix-dark) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--matrix-green) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3) !important;
+}
+
+button:hover, .btn:hover, [role="button"]:hover {
+  background: var(--matrix-green) !important;
+  color: var(--bg-primary) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5) !important;
+}
+
+/* Inputs */
+input, textarea, select {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--matrix-green) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3) !important;
+  outline: none !important;
+}
+
+/* Code blocks */
+code, pre {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--matrix-dark) !important;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted) !important;
+}
+
+/* Logo/Brand text */
+[class*="logo"], [class*="brand"], [class*="title"] {
+  color: var(--matrix-bright) !important;
+  text-shadow: 0 0 20px rgba(127, 255, 0, 0.7) !important;
+  font-family: 'Orbitron', 'JetBrains Mono', sans-serif !important;
+}
+
+/* Cards and containers */
+[class*="card"], [class*="panel"], [class*="box"] {
+  background: var(--bg-tertiary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Active states */
+.active, [aria-selected="true"], [class*="active"] {
+  background: var(--matrix-dark) !important;
+  border-color: var(--matrix-green) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.4) !important;
+}
+
+/* Status indicators */
+[class*="status"], [class*="indicator"] {
+  color: var(--matrix-green) !important;
+}
+
+[class*="error"], [class*="danger"] {
+  color: #FF4444 !important;
+  border-color: #FF4444 !important;
+}
+
+[class*="warning"], [class*="warn"] {
+  color: #FFAA00 !important;
+}
+
+[class*="success"] {
+  color: var(--matrix-green) !important;
+}
+
+/* Message bubbles */
+[class*="message"], [class*="chat"] {
+  background: var(--bg-tertiary) !important;
+}
+
+[class*="user"], [class*="sent"] {
+  background: var(--matrix-dark) !important;
+  border-left: 3px solid var(--matrix-green) !important;
+}
+
+[class*="assistant"], [class*="received"], [class*="bot"] {
+  background: var(--bg-tertiary) !important;
+  border-left: 3px solid var(--matrix-bright) !important;
+}
+
+/* Terminal prompt style */
+[class*="input"]::before {
+  content: '⟩ ';
+  color: var(--matrix-green);
+}
+
+/* Add glow to important elements */
+[class*="primary"], [class*="main"], [class*="highlight"] {
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3) !important;
+}
+
+/* Console.log styling */
+console.log('%c INNERG TERMINAL ACTIVE ', 'background: #00FF41; color: #0D0D0D; font-weight: bold; padding: 4px 8px;');
